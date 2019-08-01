@@ -40,6 +40,11 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
+export const addCollectionAndDocuments = (collectionKey, objectsToAdd) => {
+  const collecitonRef = firestore.collection(collectionKey);
+  console.log(collecitonRef)
+}
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
