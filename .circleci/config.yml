@@ -6,5 +6,4 @@ workflows:
     jobs:
       - cypress/run:
           start: npm start
-          parallel: true
           parallelism: 4
