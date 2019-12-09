@@ -1,16 +1,12 @@
 version: 2.1
 jobs: 
   build: 
-    docker: 
-      - image: circleci/node:8.9
     steps:
       - checkout
       - run: echo "npm installing" 
       - run: npm install
       - run: CI=true npm run build
   test: 
-    docker:
-      - image: circleci/node:8.9
     steps:
       - checkout
       - run: echo "testing" 
@@ -24,3 +20,8 @@ workflows:
       - cypress/run:
            build: "npm run build"
            record: true
+
+# //# Error calling workflow: 'build'
+# Error calling job: 'cypress/run'
+# Cannot find orb 'cypress' looking for executor named 'cypress/base-10'
+#
