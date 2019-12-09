@@ -12,9 +12,11 @@ describe('Sign In Tests', () => {
 
   it('signs me out', () => {
     cy.get('.form-input[data-cy=sign-in-email]').type('a@a.com')
-    cy.get('.form-input[data-cy=sign-in-password]').type('Tester1!', { timeout: 40000 })
+    cy.get('.form-input[data-cy=sign-in-password]').type('Tester1!{enter}')
+    cy.wait(500)
     // cy.get('.custom-button[data-cy=sign-in-button]').click()
     cy.get('.option[data-cy=sign-out-header]').click()
+    cy.wait(500)
     cy.get('.header').contains('SIGN IN') 
   })
 })
