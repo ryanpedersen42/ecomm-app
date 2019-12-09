@@ -5,5 +5,4 @@ workflows:
   build:
     jobs:
       - cypress/run:
-        start: npm start
-        record: true
+          start: npm start
