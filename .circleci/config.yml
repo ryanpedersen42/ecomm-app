@@ -7,4 +7,3 @@ workflows:
       - cypress/run:
           start: npm start
           parallelism: 4
-          browser: chrome
