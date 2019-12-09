@@ -1,27 +1,28 @@
 version: 2.1
 jobs: 
-  build: 
-    steps:
-      - checkout
-      - run: echo "npm installing" 
-      - run: npm install
-      - run: CI=true npm run build
   test: 
+    docker: 
+      - image: cypress/base-10
     steps:
       - checkout
-      - run: echo "testing" 
-      - run: npm install
-      - run: npm run cypress:open
-orbs:
-  cypress: cypress-io/cypress@1.0.0
-workflows:
-  build:
-    jobs:
-      - cypress/run:
-           build: "npm run build"
-           record: true
+      - restore_cache: 
+        keys: 
+          - cache-{{ .Branch }}-{{ checksum "package.json" }}
+    - run:
+        name: Install Dependencies
+        command: npm ci
+    - run: npm run cy:verify
+    - save_cache: 
+        key: cache-{{ .Branch }}-{{ checksum "package.json" }}
+        paths: 
+          - -/.npm
+          - -/.cache
+    - run: 
+        command: npm start
+        background: true
+    - run: npm run 
 
-# //# Error calling workflow: 'build'
-# Error calling job: 'cypress/run'
-# Cannot find orb 'cypress' looking for executor named 'cypress/base-10'
-#
+workflows:
+  version: 2
+    jobs:
+      - test
