@@ -1,4 +1,4 @@
-describe('Checkout Page Test', () => {
+describe('Checkout Page Tests', () => {
   beforeEach(() => {
     cy.visit('/shop/accessories')
 

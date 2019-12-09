@@ -26,9 +26,9 @@ const Header = ({ currentUser, hidden }) => (
       <Link className='option' data-cy='shop-header' to='/shop'>
         SHOP
       </Link>
-      <Link className='option' data-cy='saved-header' to='/saved'>
+      {/* <Link className='option' data-cy='saved-header' to='/saved'>
         SAVED
-      </Link>
+      </Link> */}
       {
         currentUser ?
         <div className='option' data-cy='sign-out-header' onClick={() => auth.signOut()}>

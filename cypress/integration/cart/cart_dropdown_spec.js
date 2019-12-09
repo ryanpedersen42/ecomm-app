@@ -1,4 +1,4 @@
-describe('Cart Test', () => {
+describe('Cart Dropdown Tests', () => {
   beforeEach(() => {
     cy.visit('/shop/electronics')
 

@@ -13,8 +13,12 @@ describe('Navigation Tests', () => {
     cy.url().should('eq', 'http://localhost:3000/shop/shoes')
   })
 
-  it('can add a cart in nav', () => {
+  it('can navigate back to home through logo click', () => {
+    cy.visit('/shop/accessories')
 
+    cy.get('.logo-container')
+      .click()
+
+    cy.url().should('eq', 'http://localhost:3000/')
   })
-
 })
