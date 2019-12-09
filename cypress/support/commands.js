@@ -1,9 +1,6 @@
-Cypress.Commands.add('login', () => {
+Cypress.Commands.add('login', (user) => {
   cy.visit('/signin')
-  cy.get('.form-input[data-cy=sign-in-email]').type('a@a.com')
-  cy.get('.form-input[data-cy=sign-in-password]').type('Tester1!')
-  cy.hash().should('eq', '')
-  // ((resp) => {
-  //   window.localStorage.setItem('jwt', resp.body.user.token)
-  // })
+  cy.get('.form-input[data-cy=sign-in-email]').type(user.email)
+  cy.get('.form-input[data-cy=sign-in-password]').type(`${user.password}{enter}`)
 })
+
