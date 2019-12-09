@@ -23,19 +23,19 @@ const Header = ({ currentUser, hidden }) => (
       <Logo className='logo' />
     </Link>
     <div className='options'>
-      <Link className='option' to='/shop'>
+      <Link className='option' data-cy='shop-header' to='/shop'>
         SHOP
       </Link>
-      <Link className='option' to='/contact'>
-        CONTACT
+      <Link className='option' data-cy='saved-header' to='/saved'>
+        SAVED
       </Link>
       {
         currentUser ?
-        <div className='option' onClick={() => auth.signOut()}>
+        <div className='option' data-cy='sign-out-header' onClick={() => auth.signOut()}>
           SIGN OUT
         </div>
         :
-        <Link className='option' to='/signin'>
+        <Link className='option' data-cy='sign-in-header' to='/signin'>
           SIGN IN
         </Link>
       }

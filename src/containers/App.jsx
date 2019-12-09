@@ -42,6 +42,7 @@ class App extends Component {
           });
         }
         setCurrentUser(userAuth);
+        console.log('user auth', userAuth)
         addCollectionAndDocuments('collections', collectionsArray);
       });
   }
