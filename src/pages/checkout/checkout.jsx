@@ -38,7 +38,7 @@ const CheckoutPage = ({ cartItems, total }) => (
     ))}
     <div className='total'>TOTAL: ${total}</div>
     {
-      !cartItems.length && <h1 data-cy='empty-message'>Your Cart is Empty</h1>
+      !cartItems.length && <h1 className='empty-message' data-cy='empty-checkout-page'>Your Cart is Empty</h1>
     }
     <div className='test-warning'>
     *Please use the following test CC for payment:

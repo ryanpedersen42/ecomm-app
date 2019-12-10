@@ -1,6 +1,17 @@
-Cypress.Commands.add('login', (user) => {
+Cypress.Commands.add('loginUICommand', () => {
   cy.visit('/signin')
-  cy.get('.form-input[data-cy=sign-in-email]').type(user.email)
-  cy.get('.form-input[data-cy=sign-in-password]').type(`${user.password}{enter}`)
+  cy
+  .get('.form-input[data-cy=sign-in-email]')
+  .type('a@a.com')
+
+  cy
+    .get('.form-input[data-cy=sign-in-password]')
+    .type('Tester1!')
 })
 
+Cypress.Commands.add('itemToCart', () => {
+  cy.visit('/shop/cameras')
+
+  cy.get('.custom-button[data-cy=Sabre]')
+    .click({ force: true })
+})

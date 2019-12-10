@@ -37,7 +37,7 @@ describe('Checkout Page Tests', () => {
     cy.get('.arrow[data-cy=remove-item-Cassettes]')
       .click()
     
-    cy.contains('Your Cart is Empty')
+    cy.get('.empty-message[data-cy=empty-checkout-page]')
       .should('be.visible')        
   })
 
@@ -45,11 +45,11 @@ describe('Checkout Page Tests', () => {
     cy.get('.remove-button[data-cy=clear-item-Cassettes]')
       .click()
     
-    cy.contains('Your Cart is Empty')
+    cy.get('.empty-message[data-cy=empty-checkout-page]')
       .should('be.visible')        
   })
 
-  it('removes a single item and leave another', () => {
+  it('removes a single item and leaves the other', () => {
     cy.visit('/shop/cameras').get('.custom-button[data-cy=Polaroid]').click({ force: true }).visit('/checkout')
 
     cy.get('.remove-button[data-cy=clear-item-Cassettes]')
@@ -58,5 +58,4 @@ describe('Checkout Page Tests', () => {
     cy.get('.checkout-item')
       .should('have.length', 1)
   })
-
 })
