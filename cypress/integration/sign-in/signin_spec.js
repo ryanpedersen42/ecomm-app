@@ -4,7 +4,7 @@ describe('Sign In Tests', () => {
   })
 
   it('can sign me in and out', () => {
-    //longer test to confirm the sign in functionality
+    //longer test to confirm the sign in / sign out functionality
     cy
       .get('.form-input[data-cy=sign-in-email]')
       .type('a@a.com')

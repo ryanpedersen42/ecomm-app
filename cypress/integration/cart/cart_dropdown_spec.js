@@ -8,7 +8,7 @@ describe('Cart Dropdown Tests', () => {
 
   it('increments number in cart icon', () => {
     cy.get('.cart-icon')
-      .contains(1)
+      .should('contain', 1)
   })
   
   it('adds to cart dropdown', () => {
@@ -30,7 +30,7 @@ describe('Cart Dropdown Tests', () => {
       .click({ force: true })
 
     cy.get('.cart-icon')
-      .contains(3)
+      .should('contain', 3)
   })
 
   it('handles empty cart', () => {
@@ -42,8 +42,7 @@ describe('Cart Dropdown Tests', () => {
     cy.get('.cart-icon')
       .click() 
 
-    cy.get('.cart-items')
-      .contains('Your cart is empty')
+    cy.get('.empty-message[data-cy=empty-dropdown]')
       .should('be.visible')  
   })
 })

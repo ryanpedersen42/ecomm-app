@@ -56,4 +56,10 @@ describe('Redux Store Tests', () => {
         }
     })
   })
+
+  it('changes cart redux state when item is added', () => {
+    cy.itemToCart()
+    cy.visit('/')
+    cy.window().its('store').invoke('getState').its('cart.cartItems').should('have.length', 1)
+  })
 })
