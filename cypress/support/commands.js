@@ -1,12 +1,12 @@
 Cypress.Commands.add('loginUICommand', () => {
   cy.visit('/signin')
   cy
-  .get('.form-input[data-cy=sign-in-email]')
-  .type('a@a.com')
+    .get('.form-input[data-cy=sign-in-email]')
+    .type('a@a.com')
 
   cy
     .get('.form-input[data-cy=sign-in-password]')
-    .type('Tester1!')
+    .type('Tester1!{enter}')
 })
 
 Cypress.Commands.add('itemToCart', () => {

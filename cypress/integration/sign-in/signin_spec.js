@@ -1,7 +1,9 @@
+/// <reference types="Cypress" />
 describe('Sign In Tests', () => {
   beforeEach(() => {
     cy.visit('/signin')
   })
+
 
   it('can sign me in and out', () => {
     //longer test to confirm the sign in / sign out functionality
@@ -16,7 +18,7 @@ describe('Sign In Tests', () => {
     cy
       .url()
       .should('eq', 'http://localhost:3000/')
-
+      // other option is .location('pathname').should('eq', '/') -- why one vs the other here?
     cy
       .get('.header')
       .contains('SIGN OUT') 
