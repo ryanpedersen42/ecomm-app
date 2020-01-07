@@ -1,8 +1,8 @@
 Cypress.Commands.add('loginUICommand', () => {
   cy.visit('/signin')
   cy
-  .get('.form-input[data-cy=sign-in-email]')
-  .type('a@a.com')
+    .get('.form-input[data-cy=sign-in-email]')
+    .type('a@a.com')
 
   cy
     .get('.form-input[data-cy=sign-in-password]')

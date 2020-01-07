@@ -1,5 +1,9 @@
 import SHOP_DATA from '../../../src/redux/shop/shop.data';
 
+//items work in batches
+//
+/// <reference types="Cypress" />
+
 describe('Redux Store Tests', () => {
   it('has expected redux initial state on load', () => {
     cy.visit('/')
