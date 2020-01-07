@@ -6,7 +6,7 @@ Cypress.Commands.add('loginUICommand', () => {
 
   cy
     .get('.form-input[data-cy=sign-in-password]')
-    .type('Tester1!{enter}')
+    .type('Tester1!')
 })
 
 Cypress.Commands.add('itemToCart', () => {
