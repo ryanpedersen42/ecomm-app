@@ -4,9 +4,10 @@ describe('Sign In Tests', () => {
     cy.visit('/signin')
   })
 
+  //longer test to confirm the sign in / sign out functionality
+  // other option is .location('pathname').should('eq', '/') -- why one vs the other here?
 
   it('can sign me in and out', () => {
-    //longer test to confirm the sign in / sign out functionality
     cy
       .get('.form-input[data-cy=sign-in-email]')
       .type('a@a.com')
@@ -18,7 +19,6 @@ describe('Sign In Tests', () => {
     cy
       .url()
       .should('eq', 'http://localhost:3000/')
-      // other option is .location('pathname').should('eq', '/') -- why one vs the other here?
     cy
       .get('.header')
       .contains('SIGN OUT') 

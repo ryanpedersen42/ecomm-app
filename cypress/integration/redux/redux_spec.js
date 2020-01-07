@@ -66,10 +66,4 @@ describe('Redux Store Tests', () => {
     cy.visit('/')
     cy.window().its('store').invoke('getState').its('cart.cartItems').should('have.length', 1)
   })
-
-  it('changes user state in redux', () => {
-    cy.loginUICommand()
-    cy.window().its('store').invoke('getState').its('user.currentUser.displayName').should('equal', 'a')
-    cy.expect
-  })
 })
