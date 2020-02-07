@@ -1,4 +1,5 @@
 import SHOP_DATA from '../../../src/redux/shop/shop.data';
+import { store } from '../../../src/redux/store';
 
 //items work in batches
 //
@@ -60,6 +61,12 @@ describe('Redux Store Tests', () => {
         }
     })
   })
+
+  //to do
+  // it('can do redux other way', () => {
+  //   cy.visit('/')
+  //   cy.window().its('store').invoke('getState').should('equal', store)
+  // })
 
   it('changes cart redux state when item is added', () => {
     cy.itemToCart()
