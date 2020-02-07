@@ -7,11 +7,9 @@ workflows:
       - cypress/run:
           - restore_cache:
               keys:
-              - cache-{{ .Branch }}-{{ checksum "package.json" }}
+              - v1-npm-deps-{{ checksum "package-lock.json" }}
           start: npm start
           parallelism: 4
           - save_cache:
-              key: cache-{{ .Branch }}-{{ checksum "package.json" }}
-              paths:
-              - ~/.npm
-              - ~/.cache
+              key: 
+              - cache-{{ .Branch }}-{{ checksum "package.json" }}
