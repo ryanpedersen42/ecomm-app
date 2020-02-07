@@ -5,5 +5,13 @@ workflows:
   build:
     jobs:
       - cypress/run:
+          - restore_cache:
+              keys:
+              - cache-{{ .Branch }}-{{ checksum "package.json" }}
           start: npm start
           parallelism: 4
+          - save_cache:
+              key: cache-{{ .Branch }}-{{ checksum "package.json" }}
+              paths:
+              - ~/.npm
+              - ~/.cache
