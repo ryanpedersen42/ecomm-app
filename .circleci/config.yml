@@ -1,9 +1,36 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1
-workflows:
+
+jobs:
   build:
+    docker:
+      - image: circleci/node:13.10.1
+    parallelism: 2
+    steps:
+      - checkout
+      - run:
+          name: update npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          keys:
+              # when lock file changes, use increasingly general patterns to restore cache
+              - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+              - node-v1-{{ .Branch }}-
+              - node-v1-
+      - run:
+          name: Fetch dependencies
+          command: npm install
+      - save_cache:
+          paths:
+              - node_modules  
+          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+
+
+workflows:
+  build_test:
     jobs:
+      - build
       - cypress/run:
           start: npm start
           parallelism: 4
