@@ -19,6 +19,7 @@ workflows:
           requires:
             - cypress/install
           record: true
+          start: npm start
           parallel: true
           parallelism: 2
           group: 2 machines
