@@ -14,6 +14,11 @@ workflows:
   build_test:
     jobs:
       - build
+      - cypress/install
       - cypress/run:
-          start: npm start
-          parallelism: 4
+          requires:
+            - cypress/install
+          record: true
+          parallel: true
+          parallelism: 2
+          group: 2 machines
