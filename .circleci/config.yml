@@ -14,12 +14,12 @@ workflows:
   build_test:
     jobs:
       - build
-      # - cypress/install
-      #     requires:
-      #       - build
-      - cypress/run:
+      - cypress/install
           requires:
             - build
+      - cypress/run:
+          requires:
+            - cypress/install
           record: true
           start: npm start
           parallel: true
