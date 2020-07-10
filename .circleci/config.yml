@@ -17,6 +17,7 @@ workflows:
       - cypress/install:
           requires:
             - build
+          cache-key: v1-{{ checksum "package.json" }}
       - cypress/run:
           requires:
             - cypress/install
