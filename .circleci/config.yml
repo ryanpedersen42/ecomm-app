@@ -13,15 +13,14 @@ jobs:
 workflows:
   build_test:
     jobs:
-      # - build
-      # - cypress/install:
-      #     requires:
-      #       - build
+      - build
+      - cypress/install:
+          requires:
+            - build
       - cypress/run:
-          # requires:
-          #   - cypress/install
+          requires:
+            - cypress/install
           record: true
-          install-command: npm install
           cache-key: v1-{{ checksum "package.json" }}
           start: npm start
           parallel: true
